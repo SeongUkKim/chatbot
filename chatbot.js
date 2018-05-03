@@ -126,7 +126,11 @@ app.post('/message', function(req, res) {
         case '챗봇정보':
             res.json({
                 'message':{
-                    'text':'(주)선도소프트의 정보제공서비스입니다!\n\n기능 및 오류 신고는 문의하기로 부탁드립니다.\n\n> 챗봇에서 상담원으로 전환하기\n\n> swkim@sundosoft.co.kr\n\n> 010-9172-2550\n\n본 서비스는 오픈소스로 Github에 모두 공개되어있으며 MIT 라이센스를 적용하고 있습니다!\n\nServer: Node.js\nDB: MySQL 5.7'
+                    'text':'(주)선도소프트의 정보제공서비스입니다!\n\n기능 및 오류 신고는 문의하기로 부탁드립니다.\n\n> 챗봇에서 상담원으로 전환하기\n\n> swkim@sundosoft.co.kr\n\n> 010-9172-2550\n\n본 서비스는 오픈소스로 Github에 모두 공개되어있으며 MIT 라이센스를 적용하고 있습니다!\n\nServer: Node.js\nDB: MySQL 5.7',
+                'message_button': {
+                    'label': '소스코드',
+                    'url': 'https://github.com/SeongUkKim/chatbot'
+                  }   
                 },
                 keyboard:{
                     'type': 'buttons',
@@ -228,7 +232,7 @@ http.createServer(app).listen(9090, function() {
     try {
     
     // 매 시간마다 날씨데이터 갱신
-    schedule.scheduleJob('0 0 * * * * *', () => {
+    schedule.scheduleJob('0 * * * * * *', () => {
       weather.set();  
     });
   } 
