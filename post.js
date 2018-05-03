@@ -1,3 +1,15 @@
+/*
+* post.js
+*
+* 스윗트래커 Open API 이용
+* 
+* 키 발급: http://www.sweettracker.co.kr/
+* 
+* 사용중인 API 
+* - 배송정보 
+*
+*/
+
 const request = require('request'),
   cheerio = require('cheerio');                   
 
