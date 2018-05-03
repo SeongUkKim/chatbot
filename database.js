@@ -3,11 +3,11 @@ var db;
 
 // 커넥션 생성 
     db = mysql.createConnection({
-      host:'localhost',
-      port:'3306',
-      user: 'root',
-      password:'tedd9022@@',
-      database:'Test'
+      host:'host',
+      port:'port',
+      user: 'user',
+      password:'password',
+      database:'database'
     });
 
 // 인자로 넘어온 SQL 문장 실행 
