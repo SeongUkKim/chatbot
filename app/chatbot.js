@@ -68,7 +68,7 @@ app.post('/message', function(req, res) {
         case '직원수':
             res.json({
                 'message':{
-                    'text': '(주)선도소프트의 직원수는 현재 35명 입니다.'
+                    'text': change
                 },
                 keyboard:{
                     'type': 'buttons',
