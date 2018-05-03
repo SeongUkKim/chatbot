@@ -80,7 +80,7 @@ app.post('/message', function(req, res) {
         case '행사일정':
             res.json({
                 'message':{
-                    'text': '4월 24일: 컬쳐데이 영화 관람\n5월 10일: 고척 야구장 야구관람\n5월 29일: 팀별 회식 및 뮤지컬 관람'
+                    'text': change
                 },
                 keyboard:{
                     'type': 'buttons',
