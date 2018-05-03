@@ -1,6 +1,6 @@
 # 데이터베이스 메뉴얼
 > ## 날씨정보 테이블
- >> - 데이터베이스는 MySQL사용
+> - 데이터베이스는 MySQL사용
 
 ```sql
 CREATE TABLE weather (
