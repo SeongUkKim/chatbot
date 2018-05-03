@@ -231,8 +231,8 @@ http.createServer(app).listen(9090, function() {
     
     try {
     
-    // 매 시간마다 날씨데이터 갱신
-    schedule.scheduleJob('0 20 * * * * *', () => {
+    // 매 분마다 날씨데이터 갱신
+    schedule.scheduleJob('0 0 * * * * *', () => {
       weather.set();  
     });
   } 
