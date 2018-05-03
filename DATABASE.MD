@@ -1,6 +1,6 @@
 # 데이터베이스 메뉴얼
 > ## 날씨정보 테이블
- - 데이터베이스는 MySQL사용
+ >> - 데이터베이스는 MySQL사용
 
 ```sql
 CREATE TABLE weather (
@@ -16,5 +16,4 @@ CREATE TABLE weather (
 ```
 
 >- 테이블명 : weather
-
 >- 설명: 시간, 온도, 강수상태, 강수확률, 날씨, 습도, 정보발표시간 저장
