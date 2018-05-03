@@ -1,7 +1,7 @@
 const request = require('request'),
   cheerio = require('cheerio');
 
-  const db = require('./database.js');
+const db = require('./database.js');
 
 const $url = 'http://www.weather.go.kr/wid/queryDFSRSS.jsp?zone=1154551000';
 
@@ -36,6 +36,7 @@ const set = async () => {
     });
   
     let data = 'INSERT INTO weather VALUES';
+      
     weather.forEach(i => {
       data += `(${i.index},${i.hour},${i.temp},${i.pty},${i.pop},'${i.wfKor}',${i.reh},'${i.pub}'),`;
     });
@@ -47,7 +48,7 @@ const set = async () => {
       db.executeQuery('commit');
   } 
     catch(e) {
-    console.log(e);
+        console.log(e);
     }
 }
 
@@ -56,9 +57,11 @@ const get = async callback => {
   try {
     let rows = await db.executeQuery('SELECT * FROM weather');
       db.executeQuery('commit');
+      
     if(!rows.length) {
       callback('날씨 데이터가 없습니다.\n잠시 후 다시 시도해주세요', true);
-    } else {
+    } 
+      else {
       const $pty = ['없음', '비', '비와 눈', '눈'];
       let str = '';
       let pub = ''; // 발표한 시간 
@@ -68,7 +71,8 @@ const get = async callback => {
       });
       callback(str + pub + ' 발표\n서울시 금천구 가산동기준\n(시간은 24시간 형식)', false);
     }
-  } catch(e) {
+  } 
+    catch(e) {
     console.log(e);
     callback('서버에 문제가 발생하였습니다.', false);
   }
