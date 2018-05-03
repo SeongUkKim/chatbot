@@ -43,8 +43,9 @@ const set = async () => {
   
     await db.executeQuery('DELETE FROM weather');
     let rows = await db.executeQuery(data.slice(0, -1));
-    if(rows.affectedRows) 
+    if(rows.affectedRows){ 
         console.log('Weather data changed');
+    }
       db.executeQuery('commit');
   } 
     catch(e) {
@@ -55,9 +56,7 @@ const set = async () => {
 // DB에 저장된 데이터 가져오기 
 const get = async callback => {
   try {
-    let rows = await db.executeQuery('SELECT * FROM weather');
-      db.executeQuery('commit');
-      
+    let rows = await db.executeQuery('SELECT * FROM weather');   
     if(!rows.length) {
       callback('날씨 데이터가 없습니다.\n잠시 후 다시 시도해주세요', true);
     } 
