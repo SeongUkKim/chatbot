@@ -6,5 +6,5 @@
 > - 개발자: 김성욱
 > - 문의사항: td1118@naver.com
 
-> 플러스친구 추가하기: https://pf.kakao.com/_xonxdxjC
+> [example](https://pf.kakao.com/_xonxdxjC "플러스친구 추가하기") 
 ![Github](./kakao.jpg)
