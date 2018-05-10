@@ -242,5 +242,4 @@ http.createServer(app).listen(9090, function() {
     console.log("Database init() failed.");
   }
   
-});
-```
+});```
