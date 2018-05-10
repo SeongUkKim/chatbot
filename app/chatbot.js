@@ -15,6 +15,10 @@ const app = express();
 
 const router = express.Router();
 
+const $button = ['회사정보','행사일정','날씨','운송장조회','문의하기','챗봇정보'];
+const $button2 = ['홈 페이지로 이동','직원수','회사위치'];
+const $button3 = ['개발자','처음으로'];
+
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(router);
@@ -22,7 +26,7 @@ app.use(router);
 app.get('/keyboard', function(req, res) {
        var data = {
            'type': 'buttons',
-           'buttons': ['회사정보','행사일정','날씨','운송장조회','문의하기','챗봇정보']
+           'buttons': $button
        };
     
         res.json(data);
@@ -31,7 +35,7 @@ app.get('/keyboard', function(req, res) {
 app.post('/message', function(req, res) {
     
     var msg = req.body.content;
-        console.log('전달받은 메시지: ' + msg);
+        console.log('입력: ' + msg);
     
     var send = {};
     
@@ -43,7 +47,7 @@ app.post('/message', function(req, res) {
                 },
                 keyboard:{
                     'type': 'buttons',
-                    'buttons': ['홈 페이지로 이동','직원수','회사위치']
+                    'buttons': $button2
                 }
             });
             break;  
@@ -60,7 +64,7 @@ app.post('/message', function(req, res) {
                 },
                 keyboard:{
                     'type': 'buttons',
-                    'buttons': ['회사정보','행사일정','날씨','운송장조회','문의하기','챗봇정보']
+                    'buttons': $button
                 }
             });
             break;    
@@ -68,11 +72,11 @@ app.post('/message', function(req, res) {
         case '직원수':
             res.json({
                 'message':{
-                    'text': change
+                    'text': '(주)선도소프트의 직원수는 현재 37명 입니다.'
                 },
                 keyboard:{
                     'type': 'buttons',
-                    'buttons': ['회사정보','행사일정','날씨','운송장조회','문의하기','챗봇정보']
+                    'buttons': $button
                 }
             });
             break;
@@ -80,11 +84,11 @@ app.post('/message', function(req, res) {
         case '행사일정':
             res.json({
                 'message':{
-                    'text': change
+                    'text': '5월 11일: 창립 기념일 휴무\n6월 4일: 회사 이전 기념식\n6월 14일: 고척 야구장 야구관람\n6월 25일: 뮤지컬 관람'
                 },
                 keyboard:{
                     'type': 'buttons',
-                    'buttons': ['회사정보','행사일정','날씨','운송장조회','문의하기','챗봇정보']
+                    'buttons': $button
                 }
             });
             break;
@@ -100,7 +104,7 @@ app.post('/message', function(req, res) {
                 },
                 keyboard:{
                     'type': 'buttons',
-                    'buttons': ['회사정보','행사일정','날씨','운송장조회','문의하기','챗봇정보']
+                    'buttons': $button
                 }
             });
             break;    
@@ -116,7 +120,7 @@ app.post('/message', function(req, res) {
                     },
                     keyboard:{
                         'type': 'buttons',
-                        'buttons': ['회사정보','행사일정','날씨','운송장조회','문의하기','챗봇정보']
+                        'buttons': $button
                     }   
                 });
             })
@@ -134,7 +138,7 @@ app.post('/message', function(req, res) {
                 },
                 keyboard:{
                     'type': 'buttons',
-                    'buttons': ['개발자','처음으로']
+                    'buttons': $button3
                 }
             });
             break;
@@ -150,7 +154,7 @@ app.post('/message', function(req, res) {
                 },
                 keyboard:{
                     'type': 'buttons',
-                    'buttons': ['회사정보','행사일정','날씨','운송장조회','문의하기','챗봇정보']
+                    'buttons': $button
                 }
             });
             break;    
@@ -162,7 +166,7 @@ app.post('/message', function(req, res) {
                 },
                 keyboard:{
                     'type': 'buttons',
-                    'buttons': ['회사정보','행사일정','날씨','운송장조회','문의하기','챗봇정보']
+                    'buttons': $button
                 }
             });
             break;
@@ -175,7 +179,7 @@ app.post('/message', function(req, res) {
                 },
                 keyboard:{
                     'type': 'buttons',
-                    'buttons': ['회사정보','행사일정','날씨','운송장조회','문의하기','챗봇정보']
+                    'buttons': $button
                 }
             });
             break;
@@ -183,7 +187,7 @@ app.post('/message', function(req, res) {
         case '운송장조회':
             res.json({
                 'message':{
-                    'text': '[운송장조회]\n\n=======(국내택배)=======\n건영택배 - 18\n경동택배 - 23\n고려택배 - 19\n굿투럭 - 40\n대신택배 - 22\n로젠택배 - 06\n롯데택배 - 08\n애니트랙 - 43\n우체국택배 - 01\n일양로지스 - 11\n천일택배 - 17\n쿠팡 로켓배송 - 36\n한덱스 - 20\n한의사랑택배 - 16\n한진택배 - 05\n합동택배 - 32\n호남택배 - 45\nCJ대한통운 - 04\nCU편의점택배 - 46\nCVSnet - 24\nKGB택배 - 10\nKGL네트웍스 - 30\n드림택배 - 39\nSLX - 44\n=======(국제택배)=======\n롯데글로벌 로지스 - 99\n범한판토스 - 37\n에어보이익스프레스 - 29\n포시즌익스프레스 - 35\nAPEX - 38\nCJ대한통운 국제특송 - 42\nDHL - 13\nDHL Global Mail - 33\nEMS - 12\nFedex - 21\nGSI Express - 41\nGSMNtoN - 28\ni-Parcel - 34\nTNT Express - 25\nTPL - 27\nUPS - 14\nUSPS - 26\n\n조회하실 택배사의 운송장을 입력하여 택배의 상황을 조회 할 수 있습니다.\n\n예)"택배 택배사번호 운송장번호"\nex)"택배 01 12345678"\n(운송장 번호는 -제외)\n\n해당 양식에 맞춰 명령어를 입력해주시면 됩니다.\n\n취소를 원하시면 "처음으로"를 입력 해주세요'
+                    'text': '[운송장조회]\n\n========[국내택배]=======\n건영택배 - 18\n경동택배 - 23\n고려택배 - 19\n굿투럭 - 40\n대신택배 - 22\n로젠택배 - 06\n롯데택배 - 08\n애니트랙 - 43\n우체국택배 - 01\n일양로지스 - 11\n천일택배 - 17\n쿠팡 로켓배송 - 36\n한덱스 - 20\n한의사랑택배 - 16\n한진택배 - 05\n합동택배 - 32\n호남택배 - 45\nCJ대한통운 - 04\nCU편의점택배 - 46\nCVSnet - 24\nKGB택배 - 10\nKGL네트웍스 - 30\n드림택배 - 39\nSLX - 44\n========[국제택배]========\n롯데글로벌 로지스 - 99\n범한판토스 - 37\n에어보이익스프레스 - 29\n포시즌익스프레스 - 35\nAPEX - 38\nCJ대한통운 국제특송 - 42\nDHL - 13\nDHL Global Mail - 33\nEMS - 12\nFedex - 21\nGSI Express - 41\nGSMNtoN - 28\ni-Parcel - 34\nTNT Express - 25\nTPL - 27\nUPS - 14\nUSPS - 26\n\n조회하실 택배사의 운송장을 입력하여 택배의 상황을 조회 할 수 있습니다.\n\n예)"택배 택배사번호 운송장번호"\nex)"택배 01 12345678"\n(운송장 번호는 -제외)\n\n해당 양식에 맞춰 명령어를 입력해주시면 됩니다.\n\n취소를 원하시면 "처음으로"를 입력 해주세요'
                 },
             });
             
@@ -204,7 +208,7 @@ default: {
             },
             'keyboard': {
               'type': 'buttons',
-              'buttons': ['회사정보','행사일정','날씨','운송장조회','문의하기','챗봇정보']
+              'buttons': $button
             }
           });
         });
@@ -216,7 +220,7 @@ default: {
           }, 
           'keyboard': {
             'type': 'buttons',
-            'buttons': ['회사정보','행사일정','날씨','운송장조회','문의하기','챗봇정보']
+            'buttons': $button
           }
         });
       }
@@ -231,10 +235,10 @@ http.createServer(app).listen(9090, function() {
     
     try {
     
-    // 매 분마다 날씨데이터 갱신
+    // 매분 간격으로 날씨데이터 갱신
     schedule.scheduleJob('0 * * * * * *', () => {
       weather.set();  
-    });
+    }); 
   } 
     catch(e) {
     console.log(e);
