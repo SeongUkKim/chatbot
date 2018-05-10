@@ -72,7 +72,7 @@ app.post('/message', function(req, res) {
         case '직원수':
             res.json({
                 'message':{
-                    'text': '(주)선도소프트의 직원수는 현재 37명 입니다.'
+                    'text': '사용자 설정'
                 },
                 keyboard:{
                     'type': 'buttons',
@@ -84,10 +84,7 @@ app.post('/message', function(req, res) {
         case '행사일정':
             res.json({
                 'message':{
-                    'text': '5월 11일: 창립 기념일 휴무\n'+
-                            '6월 4일: 회사 이전 기념식\n'+
-                            '6월 14일: 고척 야구장 야구관람\n'+
-                            '6월 25일: 뮤지컬 관람'
+                    'text': '사용자 설정'
                 },
                 keyboard:{
                     'type': 'buttons',
