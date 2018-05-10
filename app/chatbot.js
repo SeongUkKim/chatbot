@@ -1,4 +1,4 @@
-```javascript
+```
 const post = require('./post.js');
 
 const weather = require('./weather.js');
