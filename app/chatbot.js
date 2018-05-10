@@ -7,9 +7,9 @@ const db = require('./database.js');
 const schedule = require('node-schedule'); 
 
 const http = require('http'), 
-  express = require('express'), // REST API 서버로 구현
-  bodyParser = require('body-parser'), // HTML Body 데이터 읽기(POST)
-  cheerio = require('cheerio'); // HTML 파싱
+  express = require('express'), 
+  bodyParser = require('body-parser'), 
+  cheerio = require('cheerio'); 
 
 const app = express();
 
