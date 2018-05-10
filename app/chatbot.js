@@ -1,4 +1,3 @@
-```
 const post = require('./post.js');
 
 const weather = require('./weather.js');
@@ -242,4 +241,4 @@ http.createServer(app).listen(9090, function() {
     console.log("Database init() failed.");
   }
   
-});```
+});
