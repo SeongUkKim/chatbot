@@ -16,9 +16,9 @@
 
 > ## OpenAPI 키 값을 포함한 모듈 사용하기
 > * 생성한 key.js 모듈을 불러온 후 getKey()를 호출하여 키값을 가져옵니다.
-> * 키값은 버스 정보 모듈에 사용됩니다 (../src/bus.js)
+> * 키값은 버스 정보 모듈에 사용됩니다 (../post.js)
 > 
 > ```javascript
-> // ../src/bus.js 버스 정보 모듈 일부분
-> const $KEY = require('../key/key.js').getKey();
+> // ../post.js 버스 정보 모듈 일부분
+> const $KEY = require('../key.js').getKey();
 > ``` 
