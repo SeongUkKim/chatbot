@@ -1,5 +1,5 @@
 # Open API 키 
-* Open API 키는 http://www.sweettracker.co.kr/ 에서 발급받으실 수 있습니다.
+* Open API 키는 https://tracking.sweettracker.co.kr/ 에서 발급받으실 수 있습니다.
 * key.js는 API 키 유출 방지를 위해 업로드되지 않습니다.
 * 개인이 발급한 키를 이용하여 아래 메뉴얼에 맞춰 사용하기실 바랍니다.
 > ## OpenAPI 키 모듈 생성
