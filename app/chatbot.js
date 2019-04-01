@@ -15,9 +15,10 @@ const app = express();
 
 const router = express.Router();
 
-const $button = ['회사정보','행사일정','날씨','운송장조회','문의하기','챗봇정보'];
-const $button2 = ['홈 페이지로 이동','직원수','회사위치'];
+const $button = ['통합학교정보','날씨','원주기숙사','학식정보','챗봇정보','문의하기'];
+const $button2 = ['홈 페이지로 이동','YSCEC','연세포탈'];
 const $button3 = ['개발자','처음으로'];
+const $button4 = ['외박계입력', '운송장조회', '기숙사주소']
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -40,10 +41,10 @@ app.post('/message', function(req, res) {
     var send = {};
     
     switch(msg) {
-        case '회사정보':
+        case '통합학교정보':
             res.json({
                 'message':{
-                    'text': '회사정보를 선택하셨습니다!'
+                    'text': '통합학교정보를 선택하셨습니다!'
                 },
                 keyboard:{
                     'type': 'buttons',
@@ -56,10 +57,10 @@ app.post('/message', function(req, res) {
         case '홈 페이지로 이동':
             res.json({
                 'message':{
-                    'text':'아래 버튼을 클릭하면\n회사 홈 페이지로 이동합니다.',
-                  'message_button': {
-                      'label': '회사 홈 페이지',
-                      'url': 'http://www.sundosoft.co.kr/'
+                    'text':'아래 버튼을 클릭하면\n학교 홈 페이지로 이동합니다.',
+                    'message_button': {
+                      'label': '학교 홈 페이지',
+                      'url': 'https://www.yonsei.ac.kr/wj/'
                   }
                 },
                 keyboard:{
@@ -69,10 +70,14 @@ app.post('/message', function(req, res) {
             });
             break;    
         
-        case '직원수':
+        case 'YSCEC':
             res.json({
                 'message':{
-                    'text': '(주)선도소프트의 직원수는 현재 36명 입니다.'
+                    'text':'아래 버튼을 클릭하면\nYSCEC 페이지로 이동합니다.',
+                    'message_button': {
+                      'label': 'YSCEC 페이지',
+                      'url': 'https://yscec.yonsei.ac.kr/'
+                  }
                 },
                 keyboard:{
                     'type': 'buttons',
@@ -81,12 +86,14 @@ app.post('/message', function(req, res) {
             });
             break;
             
-        case '행사일정':
+        case '연세포탈':
             res.json({
                 'message':{
-                    'text': '6월 4일: 회사 이전 기념식\n'+
-                            '6월 14일: 고척 야구장 야구관람\n'+
-                            '6월 25일: 뮤지컬 관람'
+                    'text':'아래 버튼을 클릭하면\n연세포탈서비스 페이지로 이동합니다.',
+                    'message_button': {
+                      'label': '연세포탈 페이지',
+                      'url': 'https://portal.yonsei.ac.kr/main/indexw.jsp'
+                  }
                 },
                 keyboard:{
                     'type': 'buttons',
@@ -95,7 +102,7 @@ app.post('/message', function(req, res) {
             });
             break;
             
-        case '회사위치':
+        /*case '회사위치':
             res.json({
                 'message':{
                     'text': '구글지도에서 직접 확인해보세요!',
@@ -109,8 +116,50 @@ app.post('/message', function(req, res) {
                     'buttons': $button
                 }
             });
-            break;    
-  //*************************************회사정보***************************************************************************          
+            break;*/
+        case '원주기숙사':
+            res.json({
+                'message':{
+                    'text': '원주기숙사를 선택하셨습니다!'
+                },
+                keyboard:{
+                    'type': 'buttons',
+                    'buttons': $button4
+                }
+            });
+            break;
+
+        case '외박계입력':
+            res.json({
+                'message':{
+                    'text':'아래 버튼을 클릭하면\n외박계입력 페이지로 이동합니다./n'+'로그인 후 학교생활 - 원주기숙사에서 입력가능합니다.',
+                    'message_button': {
+                      'label': '외박계입력',
+                      'url': 'https://underwood1.yonsei.ac.kr'
+                  }
+                },
+                keyboard:{
+                    'type': 'buttons',
+                    'buttons': $button
+                }
+            });
+            break;
+            
+        case '기숙사주소':
+            res.json({
+                'message':{
+                    'text':'원주캠퍼스 기숙사 주소입니다. 택배 배송시 해당주소로 입력하시고 배송을 받으시면 됩니다.\n\n'+
+                    '> 강원 원주시 흥업면 연세대길 1\n\n>'+
+                    '> OO O학사 OOOO호-O ' 
+                },
+                keyboard:{
+                    'type': 'buttons',
+                    'buttons': $button
+                }
+            });
+            break;
+                  
+  //*************************************학교정보***************************************************************************          
         case '날씨': {
             weather.get((data, err) => {
                 if(err){
@@ -132,7 +181,7 @@ app.post('/message', function(req, res) {
         case '챗봇정보':
             res.json({
                 'message':{
-                    'text':'(주)선도소프트의 정보제공서비스입니다!\n\n기능 및 오류 신고는 문의하기로 부탁드립니다.\n\n'+
+                    'text':'연세대학교의 정보제공서비스입니다!\n\n기능 및 오류 신고는 문의하기로 부탁드립니다.\n\n'+
                     '> 챗봇에서 상담원으로 전환하기\n\n> swkim@sundosoft.co.kr\n\n'+
                     '> 010-9172-2550\n\n본 서비스는 오픈소스로 Github에 모두 공개되어있으며 MIT 라이센스를 적용하고 있습니다!'+
                     '\n\nServer: Node.js\nDB: MySQL 5.7',
