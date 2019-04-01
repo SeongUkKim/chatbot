@@ -7,4 +7,4 @@
 > - 문의사항: swkim@sundosoft.co.kr
 
 > [플러스친구 추가하기](https://pf.kakao.com/_xonxdxjC "플러스친구 추가하기") 
-![Github](./kakao.jpg)
+![Github](./kakao.png)
