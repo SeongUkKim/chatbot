@@ -102,21 +102,6 @@ app.post('/message', function(req, res) {
             });
             break;
             
-        /*case '회사위치':
-            res.json({
-                'message':{
-                    'text': '구글지도에서 직접 확인해보세요!',
-                  'message_button': {
-                      'label': '회사위치',
-                      'url': 'https://goo.gl/seijE7'
-                  }    
-                },
-                keyboard:{
-                    'type': 'buttons',
-                    'buttons': $button
-                }
-            });
-            break;*/
         case '원주기숙사':
             res.json({
                 'message':{
