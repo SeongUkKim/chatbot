@@ -117,7 +117,7 @@ app.post('/message', function(req, res) {
         case '외박계입력':
             res.json({
                 'message':{
-                    'text':'아래 버튼을 클릭하면\n외박계입력 페이지로 이동합니다./n'+'로그인 후 학교생활 - 원주기숙사에서 입력가능합니다.',
+                    'text':'아래 버튼을 클릭하면\n외박계입력 페이지로 이동합니다.\n'+'로그인 후 학교생활 - 원주기숙사에서 입력가능합니다.',
                     'message_button': {
                       'label': '외박계입력',
                       'url': 'https://underwood1.yonsei.ac.kr'
